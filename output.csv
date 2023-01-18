@@ -1,0 +1,165 @@
+sep=|
+Property|Value
+Page|https://perle.com
+Test Location|Toronto, Canada - EC2 - <b>Chrome</b> - <b>Cable</b>
+loadTime|6156.666666666667
+First Contentful Paint|597.6666666666666
+Largest Contentful Paint|1449.6666666666667
+Cumulative Layout Shift|0.5045358266
+Time To First Byte(TTFB)|361.3333333333333
+Time To Interactive|2895.3333333333335
+Speed Index|361.3333333333333
+CPU Load|36.3846959691
+Total Blocking Time|597.6666666666666
+Render Blocking Resources
+/styles/bootstrap-4.4.1/css/bootstrap.min.css
+/styles/main-b4.css
+/styles/cards-b4.css
+/styles/home-b4.css
+/scripts/bootstrap-3.3.4/respond-min.js
+/styles/slick.css
+/styles/bootstrap-select.css
+/scripts/jquery-bootstrap.js
+/scripts/jquery.cycle.all.min.js?ver=3.9
+/scripts/cookiecontrol-7.2.min.js
+/scripts/slick-slider.js
+/contactus/css/formnet.css
+/styles/bootstrap-4.4.1/js/bootstrap.bundle.min.js
+/contactus/js/site.js?v=0egs7y71xgz3aemhkhbnfytduujzz50pjl9fjgvehfa
+
+Accessibility Failures
+ID|aria-allowed-attr
+IMPACT|critical
+DESC|Ensures ARIA attributes are allowed for an element's role
+HELP|Elements must only use allowed ARIA attributes
+Affected Elements
+#slick-slide-control12
+
+ID|aria-hidden-focus
+IMPACT|serious
+DESC|Ensures aria-hidden elements do not contain focusable elements
+HELP|ARIA hidden element must not contain focusable elements
+Affected Elements
+li[data-slick-index=15]
+li[data-slick-index=16]
+li[data-slick-index=17]
+li[data-slick-index=18]
+li[data-slick-index=19]
+
+ID|aria-required-children
+IMPACT|critical
+DESC|Ensures elements with an ARIA role that require child roles contain them
+HELP|Certain ARIA roles must contain particular children
+Affected Elements
+.slick-dots
+
+ID|list
+IMPACT|serious
+DESC|Ensures that lists are structured correctly
+HELP|<ul> and <ol> must only directly contain <li>, <script> or <template> elements
+Affected Elements
+.auto-slider
+
+ID|listitem
+IMPACT|serious
+DESC|Ensures <li> elements are used semantically
+HELP|<li> elements must be contained in a <ul> or <ol>
+Affected Elements
+li[data-slick-index=20]
+li[data-slick-index=21]
+li[data-slick-index=22]
+li[data-slick-index=23]
+li[data-slick-index=24]
+
+
+Page|https://perle.com
+Test Location|Virginia USA - EC2  - <b>Chrome</b> - <b>Cable</b>
+loadTime|5512
+First Contentful Paint|520.6666666666666
+Largest Contentful Paint|1526.3333333333333
+Cumulative Layout Shift|0.3405425869
+Time To First Byte(TTFB)|303
+Time To Interactive|3989
+Speed Index|303
+CPU Load|29.506867043966665
+Total Blocking Time|520.6666666666666
+Render Blocking Resources
+/styles/bootstrap-4.4.1/css/bootstrap.min.css
+/styles/main-b4.css
+/styles/cards-b4.css
+/styles/home-b4.css
+/scripts/bootstrap-3.3.4/respond-min.js
+/styles/slick.css
+/styles/bootstrap-select.css
+/scripts/jquery-bootstrap.js
+/scripts/jquery.cycle.all.min.js?ver=3.9
+/scripts/slick-slider.js
+/scripts/cookiecontrol-7.2.min.js
+/contactus/css/formnet.css
+/styles/bootstrap-4.4.1/js/bootstrap.bundle.min.js
+/contactus/js/site.js?v=0egs7y71xgz3aemhkhbnfytduujzz50pjl9fjgvehfa
+
+Accessibility Failures
+ID|aria-allowed-attr
+IMPACT|critical
+DESC|Ensures ARIA attributes are allowed for an element's role
+HELP|Elements must only use allowed ARIA attributes
+Affected Elements
+#slick-slide-control13
+
+ID|aria-required-children
+IMPACT|critical
+DESC|Ensures elements with an ARIA role that require child roles contain them
+HELP|Certain ARIA roles must contain particular children
+Affected Elements
+.slick-dots
+
+ID|list
+IMPACT|serious
+DESC|Ensures that lists are structured correctly
+HELP|<ul> and <ol> must only directly contain <li>, <script> or <template> elements
+Affected Elements
+.auto-slider
+
+ID|listitem
+IMPACT|serious
+DESC|Ensures <li> elements are used semantically
+HELP|<li> elements must be contained in a <ul> or <ol>
+Affected Elements
+li[data-slick-index=25]
+li[data-slick-index=26]
+li[data-slick-index=27]
+li[data-slick-index=28]
+li[data-slick-index=29]
+
+
+Page|https://perle.com/products
+Test Location|Toronto, Canada - EC2 - <b>Chrome</b> - <b>Cable</b>
+loadTime|5220.666666666667
+First Contentful Paint|607.3333333333334
+Largest Contentful Paint|701.6666666666666
+Cumulative Layout Shift|0.06496683143333333
+Time To First Byte(TTFB)|366
+Time To Interactive|
+Speed Index|366
+CPU Load|36.40013937929999
+Total Blocking Time|607.3333333333334
+Render Blocking Resources
+/styles/bootstrap-4.4.1/css/bootstrap.min.css
+/styles/main-b4.css
+/styles/cards-b4.css
+/styles/bootstrap-select.css
+/styles/bootstrap-4.4.1/js/bootstrap.bundle.min.js
+/scripts/cookiecontrol-7.2.min.js
+/scripts/bootstrap-3.3.4/respond-min.js
+/contactus/css/formnet.css
+/contactus/js/site.js?v=0egs7y71xgz3aemhkhbnfytduujzz50pjl9fjgvehfa
+
+Accessibility Failures
+ID|link-name
+IMPACT|serious
+DESC|Ensures links have discernible text
+HELP|Links must have discernible text
+Affected Elements
+.margin-home
+
