@@ -9,8 +9,7 @@
     <NoWarn>0219;8600;8602;8604;8618;</NoWarn>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="CsvHelper" Version="30.0.1" />
+  <ItemGroup>    
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
   </ItemGroup>
 
