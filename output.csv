@@ -11,26 +11,47 @@ Time To Interactive||2895.3333333333335|3989|
 Speed Index|488.6666666666667|361.3333333333333|303|
 CPU Load|60.257532725599994|36.3846959691|29.506867043966665|
 Total Blocking Time|983.6666666666666|597.6666666666666|520.6666666666666|
+Render Blocking Resources
+/styles/bootstrap-4.4.1/css/bootstrap.min.css
+/styles/main-b4.css
+/styles/cards-b4.css
+/styles/home-b4.css
+/scripts/bootstrap-3.3.4/respond-min.js
+/styles/slick.css
+/styles/bootstrap-select.css
+/scripts/jquery-bootstrap.js
+/scripts/jquery.cycle.all.min.js?ver=3.9
+/scripts/slick-slider.js
+/scripts/cookiecontrol-7.2.min.js
+/contactus/css/formnet.css
+/styles/bootstrap-4.4.1/js/bootstrap.bundle.min.js
+/contactus/js/site.js?v=0egs7y71xgz3aemhkhbnfytduujzz50pjl9fjgvehfa
+
 ID|aria-allowed-attr|aria-allowed-attr|aria-allowed-attr|
 IMPACT|critical|critical|critical|
 DESC|Ensures ARIA attributes are allowed for an element's role|Ensures ARIA attributes are allowed for an element's role|Ensures ARIA attributes are allowed for an element's role|
 HELP|Elements must only use allowed ARIA attributes|Elements must only use allowed ARIA attributes|Elements must only use allowed ARIA attributes|
+
 ID|aria-hidden-focus|aria-hidden-focus|aria-hidden-focus|
 IMPACT|serious|serious|serious|
 DESC|Ensures aria-hidden elements do not contain focusable elements|Ensures aria-hidden elements do not contain focusable elements|Ensures aria-hidden elements do not contain focusable elements|
 HELP|ARIA hidden element must not contain focusable elements|ARIA hidden element must not contain focusable elements|ARIA hidden element must not contain focusable elements|
+
 ID|aria-required-children|aria-required-children|aria-required-children|
 IMPACT|critical|critical|critical|
 DESC|Ensures elements with an ARIA role that require child roles contain them|Ensures elements with an ARIA role that require child roles contain them|Ensures elements with an ARIA role that require child roles contain them|
 HELP|Certain ARIA roles must contain particular children|Certain ARIA roles must contain particular children|Certain ARIA roles must contain particular children|
+
 ID|list|list|list|
 IMPACT|serious|serious|serious|
 DESC|Ensures that lists are structured correctly|Ensures that lists are structured correctly|Ensures that lists are structured correctly|
 HELP|<ul> and <ol> must only directly contain <li>, <script> or <template> elements|<ul> and <ol> must only directly contain <li>, <script> or <template> elements|<ul> and <ol> must only directly contain <li>, <script> or <template> elements|
+
 ID|listitem|listitem|listitem|
 IMPACT|serious|serious|serious|
 DESC|Ensures <li> elements are used semantically|Ensures <li> elements are used semantically|Ensures <li> elements are used semantically|
 HELP|<li> elements must be contained in a <ul> or <ol>|<li> elements must be contained in a <ul> or <ol>|<li> elements must be contained in a <ul> or <ol>|
+
 
 Page|https://perle.com/products/media-converters/ethernet-to-fiber-media-converter.shtml|
 Test Location|Toronto, Canada - EC2 - <b>Chrome</b> - <b>Cable</b>|
@@ -43,18 +64,34 @@ Time To Interactive|7885.333333333333|
 Speed Index|312|
 CPU Load|43.2249711281|
 Total Blocking Time|560|
+Render Blocking Resources
+/styles/bootstrap-4.4.1/css/bootstrap.min.css
+/styles/main-b4.css
+/styles/cards-b4.css
+/styles/slick.css
+/styles/bootstrap-select.css
+/styles/bootstrap-4.4.1/js/bootstrap.bundle.min.js
+/scripts/slick-slider.js
+/scripts/cookiecontrol-7.2.min.js
+/scripts/bootstrap-3.3.4/respond-min.js
+/contactus/css/formnet.css
+/contactus/js/site.js?v=0egs7y71xgz3aemhkhbnfytduujzz50pjl9fjgvehfa
+
 ID|link-name|
 IMPACT|serious|
 DESC|Ensures links have discernible text|
 HELP|Links must have discernible text|
+
 ID|list|
 IMPACT|serious|
 DESC|Ensures that lists are structured correctly|
 HELP|<ul> and <ol> must only directly contain <li>, <script> or <template> elements|
+
 ID|listitem|
 IMPACT|serious|
 DESC|Ensures <li> elements are used semantically|
 HELP|<li> elements must be contained in a <ul> or <ol>|
+
 
 Page|https://perle.com/products|https://perle.com/products|https://perle.com/products|
 Test Location|Salt Lake City, Utah - GCE - <b>Chrome</b> - <b>Cable</b>|Toronto, Canada - EC2 - <b>Chrome</b> - <b>Cable</b>|Virginia USA - EC2  - <b>Chrome</b> - <b>Cable</b>|
@@ -67,7 +104,19 @@ Time To Interactive|2119||3606.3333333333335|
 Speed Index|814.6666666666666|366|321.6666666666667|
 CPU Load|42.46188063566667|36.40013937929999|34.637941291500006|
 Total Blocking Time|1203|607.3333333333334|545.6666666666666|
+Render Blocking Resources
+/styles/bootstrap-4.4.1/css/bootstrap.min.css
+/styles/main-b4.css
+/styles/cards-b4.css
+/styles/bootstrap-select.css
+/styles/bootstrap-4.4.1/js/bootstrap.bundle.min.js
+/scripts/cookiecontrol-7.2.min.js
+/scripts/bootstrap-3.3.4/respond-min.js
+/contactus/css/formnet.css
+/contactus/js/site.js?v=0egs7y71xgz3aemhkhbnfytduujzz50pjl9fjgvehfa
+
 ID|link-name|link-name|link-name|
 IMPACT|serious|serious|serious|
 DESC|Ensures links have discernible text|Ensures links have discernible text|Ensures links have discernible text|
 HELP|Links must have discernible text|Links must have discernible text|Links must have discernible text|
+

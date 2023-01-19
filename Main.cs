@@ -3,100 +3,119 @@ using System.Collections;
 using System.Text.RegularExpressions;
 using System.Linq;
 
+
 namespace perle.tech.benchmarking
 {
     class Start
-    {                
-        static void Main(string[] args)
-        {                        
-            List<TestResult> results = new List<TestResult>();
-            var FilePaths = Directory.GetFiles("./jsonFiles").Select(Path.GetFileName);
-            try{
-                if(File.Exists("./output.csv"))
-                    File.Delete("./output.csv");
-            }catch(Exception e)
+    {
+        /**
+            Args
+            1-JSON file directory
+            2-output result filepath
+        */
+        static void Main(string[] args)       
+        {
+            string inputDir = "";
+            string outputFile = "";
+            bool Continue = InitProgram(ref inputDir, ref outputFile);
+            if (!Continue)
+                return;
+
+            List <TestResult> results = new List<TestResult>();
+            var FilePaths = Directory.GetFiles(inputDir).Select(Path.GetFileName);
+
+            try
+            {
+                if (File.Exists(outputFile))
+                    File.Delete(outputFile);
+            }
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
                 return;
             }
-            
-            foreach(string s in FilePaths)
+
+            //iterate over all files in dir
+            //add file data to result set
+            foreach (string s in FilePaths)
             {
                 TestResult temp = new TestResult();
-                temp.GenerateResultsFromJSON("./jsonFiles/" + s);
-                //results.Print();
-                //temp.WriteToCsv();
+                temp.GenerateResultsFromJSON(inputDir + s);
                 results.Add(temp);
             }
+
+            //create list of lists grouped by the pageName [0]
             var groupedResults = results.GroupBy(i =>
                 i.resultSet[0]
             ).Select(group => group.ToList())
             .ToList();
 
+            //output results to csv file
             groupedResults.ForEach(g =>
             {
-                try{
-                    WriteToCsv(g);
-                }catch(Exception e)
+                try
+                {
+                    TestResult.WriteToCsv(g, outputFile);
+                }
+                catch (Exception e)
                 {
                     Console.WriteLine(e.Message);
                 }
-                
             });
+
+            Console.Beep();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"Program Completed Successfully! {results.Count} files have been processed \nfor a total of {groupedResults.Count} pages. \nThe processed csv file can be found a {outputFile}");
         }
 
-        public static void WriteToCsv(List<TestResult> testResultList)
+        public static bool ValidateUserArgs(string[] args, ref string errMsg)
         {
-            //second check is to ensure we append to the file on loop and not add extra headers and sep command
-            bool exists = (File.Exists("./output.csv"));
-            string rowText = "";
-            using (var writer = new StreamWriter("./output.csv", true))
+            if (args.Length != 2)
             {
-                if(!exists)
-                {                                     
-                    writer.WriteLine("sep=|");
-                    string header = "Property";
-                    testResultList.ForEach(t => header += "|Value");
-                    writer.WriteLine(header);
-                }
-                if(exists)
-                    writer.WriteLine();        
-                
-                //Write all rows for each common page that does not use a list
-                for(int j = 0; j < testResultList[0].resultSet.Count; j++)
-                {
-                    if(testResultList[0].resultSet[j].Value is not IList)
-                    {
-                        rowText = testResultList[0].resultSet[j].Key + "|";
-                        for(int i = 0; i < testResultList.Count; i++)
-                        {
-                            rowText += testResultList[i].resultSet[j].Value + "|";
-                        }    
-                        writer.WriteLine(rowText);
-                    }else if(testResultList[0].resultSet[j].Key == "Accessibility Failures")
-                    {
-                        
-                        rowText = "";
-                        for(int k = 0; k < testResultList[0].resultSet[j].Value.Count;k++)
-                        {
-                            for(int l = 0; l < testResultList[0].resultSet[j].Value[k].Violation.Count; l++)
-                            {
-                                rowText = testResultList[0].resultSet[j].Value[k].Violation[l].Key + "|";                                
-                                for(int i = 0; i < testResultList.Count; i++)
-                                {
-                                    rowText +=testResultList[0].resultSet[j].Value[k].Violation[l].Value + "|";
-                                }   
-                                writer.WriteLine(rowText); 
-                            }
-                            
-                        }
-                        
-                    }
-                    
-                }
-                
+                errMsg = "Insufficent Arguments";
+                return false;
             }
-                
+            if (!Directory.Exists(args[0])) 
+            {
+                errMsg = "Provided Directory Does Not Exist!";
+                return false;
+            }
+            if (Directory.GetFiles(args[0]).Length < 1)
+            {
+                errMsg = "There are 0 Files in this directory!";
+                return false;
+            }
+            if(args.Any( a => string.IsNullOrEmpty(a)))
+            {
+                errMsg = "One of your Inputs is an Empty String!";
+                return false;
+            }
+
+            return true;
+        }
+
+        public static bool InitProgram(ref string inputDir, ref string outputFile)
+        {
+            List<string> arg = new List<string>();
+            string errMsg = "";
+            Console.WriteLine("Please Input Directory of Files for processing");
+            inputDir = Console.ReadLine();
+            arg.Add(inputDir);
+            Console.WriteLine("Please Input The filepath for output");
+            outputFile = Console.ReadLine();
+            arg.Add(outputFile);
+
+            if (!ValidateUserArgs(arg.ToArray(), ref errMsg))
+            {
+                Console.Beep();
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("One of your inputs is invalid! Please check them and try again!");
+                Console.WriteLine(errMsg);
+                return false;
+            }
+
+            Console.WriteLine("Input Accepted! \nBeginning Processing.");
+            return true;
         }
     }
 }
