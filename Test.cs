@@ -140,59 +140,68 @@ namespace perle.tech.benchmarking
             //second check is to ensure we append to the file on loop and not add extra headers and sep command
             bool exists = (File.Exists(outputFileName));
             string rowText = "";
-            using (var writer = new StreamWriter(outputFileName, true))
+            try
             {
-                if (!exists)
+                using (var writer = new StreamWriter(outputFileName, true))
                 {
-                    writer.WriteLine("sep=|");
-                    string header = "Property";
-                    testResultList.ForEach(t => header += "|Value");
-                    writer.WriteLine(header);
-                }
-                if (exists)
-                    writer.WriteLine();
-
-                //Write all rows for each common page that does not use a list
-                for (int j = 0; j < testResultList[0].resultSet.Count; j++)
-                {
-                    if (testResultList[0].resultSet[j].Value is not IList)
-                    {
-                        rowText = testResultList[0].resultSet[j].Key + "|";
-                        for (int i = 0; i < testResultList.Count; i++)
+                    
+                        if (!exists)
                         {
-                            rowText += testResultList[i].resultSet[j].Value + "|";
+                            writer.WriteLine("sep=|");
+                            string header = "Property";
+                            testResultList.ForEach(t => header += "|Value");
+                            writer.WriteLine(header);
                         }
-                        writer.WriteLine(rowText);
-                    }
-                    else if (testResultList[0].resultSet[j].Key == "Accessibility Failures")
+                        if (exists)
+                            writer.WriteLine();
+                    
+                    //Write all rows for each common page that does not use a list
+                    for (int j = 0; j < testResultList[0].resultSet.Count; j++)
                     {
-                        rowText = "";
-                        for (int k = 0; k < testResultList[0].resultSet[j].Value.Count; k++)
+                        if (testResultList[0].resultSet[j].Value is not IList)
                         {
-                            for (int l = 0; l < testResultList[0].resultSet[j].Value[k].Violation.Count; l++)
+                            rowText = testResultList[0].resultSet[j].Key + "|";
+                            for (int i = 0; i < testResultList.Count; i++)
                             {
-                                rowText = testResultList[0].resultSet[j].Value[k].Violation[l].Key + "|";
-                                for (int i = 0; i < testResultList.Count; i++)
+                                rowText += testResultList[i].resultSet[j].Value + "|";
+                            }
+                            writer.WriteLine(rowText);
+                        }
+                        else if (testResultList[0].resultSet[j].Key == "Accessibility Failures")
+                        {
+                            rowText = "";
+                            for (int k = 0; k < testResultList[0].resultSet[j].Value.Count; k++)
+                            {
+                                for (int l = 0; l < testResultList[0].resultSet[j].Value[k].Violation.Count; l++)
                                 {
-                                    rowText += testResultList[0].resultSet[j].Value[k].Violation[l].Value + "|";
+                                    rowText = testResultList[0].resultSet[j].Value[k].Violation[l].Key + "|";
+                                    for (int i = 0; i < testResultList.Count; i++)
+                                    {
+                                        rowText += testResultList[0].resultSet[j].Value[k].Violation[l].Value + "|";
+                                    }
+                                    writer.WriteLine(rowText);
                                 }
+                                writer.WriteLine();
+                            }
+                        }
+                        else if (testResultList[0].resultSet[j].Key == "Render Blocking Resources")
+                        {
+                            rowText = "Render Blocking Resources";
+                            writer.WriteLine(rowText);
+                            for (int k = 0; k < testResultList[0].resultSet[j].Value.Count; k++)
+                            {
+                                rowText = testResultList[0].resultSet[j].Value[k];
                                 writer.WriteLine(rowText);
                             }
                             writer.WriteLine();
                         }
                     }
-                    else if (testResultList[0].resultSet[j].Key == "Render Blocking Resources")
-                    {
-                        rowText = "Render Blocking Resources";
-                        writer.WriteLine(rowText);
-                        for (int k = 0; k < testResultList[0].resultSet[j].Value.Count; k++)
-                        {
-                            rowText = testResultList[0].resultSet[j].Value[k];
-                            writer.WriteLine(rowText);
-                        }
-                        writer.WriteLine();
-                    }
                 }
+            }catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine("press any key to close");
+                Console.Read();
             }
         }
     }

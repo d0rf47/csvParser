@@ -15,6 +15,7 @@ namespace perle.tech.benchmarking
         */
         static void Main(string[] args)       
         {
+            Console.ForegroundColor = ConsoleColor.Gray;
             string inputDir = "";
             string outputFile = "";
             bool Continue = InitProgram(ref inputDir, ref outputFile);
@@ -32,6 +33,8 @@ namespace perle.tech.benchmarking
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+                Console.WriteLine("press any key to close");
+                Console.Read();
                 return;
             }
 
@@ -60,6 +63,8 @@ namespace perle.tech.benchmarking
                 catch (Exception e)
                 {
                     Console.WriteLine(e.Message);
+                    Console.WriteLine("press any key to close");
+                    Console.Read();
                 }
             });
 
@@ -67,7 +72,7 @@ namespace perle.tech.benchmarking
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"Program Completed Successfully! {results.Count} files have been processed \nfor a total of {groupedResults.Count} pages. \nThe processed csv file can be found a {outputFile}");
             Console.WriteLine("Press any key to terminate this window");
-            int x = Console.Read();            
+            Console.Read();            
             return;
         }
 
@@ -112,8 +117,11 @@ namespace perle.tech.benchmarking
             {
                 Console.Beep();
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("One of your inputs is invalid! Please check them and try again!");
+                Console.WriteLine("One of your inputs is invalid! Please check them and try again!\nPress Any Y to Try Again or X or Close the program");
                 Console.WriteLine(errMsg);
+                string x = Console.ReadLine();
+                if (x == "y" || x == "Y")
+                    Main(Array.Empty<string>());
                 return false;
             }
 
