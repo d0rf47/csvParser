@@ -1,165 +1,73 @@
 sep=|
-Property|Value
-Page|https://perle.com
-Test Location|Toronto, Canada - EC2 - <b>Chrome</b> - <b>Cable</b>
-loadTime|6156.666666666667
-First Contentful Paint|597.6666666666666
-Largest Contentful Paint|1449.6666666666667
-Cumulative Layout Shift|0.5045358266
-Time To First Byte(TTFB)|361.3333333333333
-Time To Interactive|2895.3333333333335
-Speed Index|361.3333333333333
-CPU Load|36.3846959691
-Total Blocking Time|597.6666666666666
-Render Blocking Resources
-/styles/bootstrap-4.4.1/css/bootstrap.min.css
-/styles/main-b4.css
-/styles/cards-b4.css
-/styles/home-b4.css
-/scripts/bootstrap-3.3.4/respond-min.js
-/styles/slick.css
-/styles/bootstrap-select.css
-/scripts/jquery-bootstrap.js
-/scripts/jquery.cycle.all.min.js?ver=3.9
-/scripts/cookiecontrol-7.2.min.js
-/scripts/slick-slider.js
-/contactus/css/formnet.css
-/styles/bootstrap-4.4.1/js/bootstrap.bundle.min.js
-/contactus/js/site.js?v=0egs7y71xgz3aemhkhbnfytduujzz50pjl9fjgvehfa
+Property|Value|Value|Value
+Page|https://perle.com|https://perle.com|https://perle.com|
+Test Location|Salt Lake City, Utah - GCE - <b>Chrome</b> - <b>Cable</b>|Toronto, Canada - EC2 - <b>Chrome</b> - <b>Cable</b>|Virginia USA - EC2  - <b>Chrome</b> - <b>Cable</b>|
+loadTime|6965|6156.666666666667|5512|
+First Contentful Paint|983.6666666666666|597.6666666666666|520.6666666666666|
+Largest Contentful Paint|1638.3333333333333|1449.6666666666667|1526.3333333333333|
+Cumulative Layout Shift|0.5554324785333333|0.5045358266|0.3405425869|
+Time To First Byte(TTFB)|488.6666666666667|361.3333333333333|303|
+Time To Interactive||2895.3333333333335|3989|
+Speed Index|488.6666666666667|361.3333333333333|303|
+CPU Load|60.257532725599994|36.3846959691|29.506867043966665|
+Total Blocking Time|983.6666666666666|597.6666666666666|520.6666666666666|
+ID|aria-allowed-attr|aria-allowed-attr|aria-allowed-attr|
+IMPACT|critical|critical|critical|
+DESC|Ensures ARIA attributes are allowed for an element's role|Ensures ARIA attributes are allowed for an element's role|Ensures ARIA attributes are allowed for an element's role|
+HELP|Elements must only use allowed ARIA attributes|Elements must only use allowed ARIA attributes|Elements must only use allowed ARIA attributes|
+ID|aria-hidden-focus|aria-hidden-focus|aria-hidden-focus|
+IMPACT|serious|serious|serious|
+DESC|Ensures aria-hidden elements do not contain focusable elements|Ensures aria-hidden elements do not contain focusable elements|Ensures aria-hidden elements do not contain focusable elements|
+HELP|ARIA hidden element must not contain focusable elements|ARIA hidden element must not contain focusable elements|ARIA hidden element must not contain focusable elements|
+ID|aria-required-children|aria-required-children|aria-required-children|
+IMPACT|critical|critical|critical|
+DESC|Ensures elements with an ARIA role that require child roles contain them|Ensures elements with an ARIA role that require child roles contain them|Ensures elements with an ARIA role that require child roles contain them|
+HELP|Certain ARIA roles must contain particular children|Certain ARIA roles must contain particular children|Certain ARIA roles must contain particular children|
+ID|list|list|list|
+IMPACT|serious|serious|serious|
+DESC|Ensures that lists are structured correctly|Ensures that lists are structured correctly|Ensures that lists are structured correctly|
+HELP|<ul> and <ol> must only directly contain <li>, <script> or <template> elements|<ul> and <ol> must only directly contain <li>, <script> or <template> elements|<ul> and <ol> must only directly contain <li>, <script> or <template> elements|
+ID|listitem|listitem|listitem|
+IMPACT|serious|serious|serious|
+DESC|Ensures <li> elements are used semantically|Ensures <li> elements are used semantically|Ensures <li> elements are used semantically|
+HELP|<li> elements must be contained in a <ul> or <ol>|<li> elements must be contained in a <ul> or <ol>|<li> elements must be contained in a <ul> or <ol>|
 
-Accessibility Failures
-ID|aria-allowed-attr
-IMPACT|critical
-DESC|Ensures ARIA attributes are allowed for an element's role
-HELP|Elements must only use allowed ARIA attributes
-Affected Elements
-#slick-slide-control12
+Page|https://perle.com/products/media-converters/ethernet-to-fiber-media-converter.shtml|
+Test Location|Toronto, Canada - EC2 - <b>Chrome</b> - <b>Cable</b>|
+loadTime|7790.666666666667|
+First Contentful Paint|560|
+Largest Contentful Paint|656.3333333333334|
+Cumulative Layout Shift|0.0030817062000000005|
+Time To First Byte(TTFB)|312|
+Time To Interactive|7885.333333333333|
+Speed Index|312|
+CPU Load|43.2249711281|
+Total Blocking Time|560|
+ID|link-name|
+IMPACT|serious|
+DESC|Ensures links have discernible text|
+HELP|Links must have discernible text|
+ID|list|
+IMPACT|serious|
+DESC|Ensures that lists are structured correctly|
+HELP|<ul> and <ol> must only directly contain <li>, <script> or <template> elements|
+ID|listitem|
+IMPACT|serious|
+DESC|Ensures <li> elements are used semantically|
+HELP|<li> elements must be contained in a <ul> or <ol>|
 
-ID|aria-hidden-focus
-IMPACT|serious
-DESC|Ensures aria-hidden elements do not contain focusable elements
-HELP|ARIA hidden element must not contain focusable elements
-Affected Elements
-li[data-slick-index=15]
-li[data-slick-index=16]
-li[data-slick-index=17]
-li[data-slick-index=18]
-li[data-slick-index=19]
-
-ID|aria-required-children
-IMPACT|critical
-DESC|Ensures elements with an ARIA role that require child roles contain them
-HELP|Certain ARIA roles must contain particular children
-Affected Elements
-.slick-dots
-
-ID|list
-IMPACT|serious
-DESC|Ensures that lists are structured correctly
-HELP|<ul> and <ol> must only directly contain <li>, <script> or <template> elements
-Affected Elements
-.auto-slider
-
-ID|listitem
-IMPACT|serious
-DESC|Ensures <li> elements are used semantically
-HELP|<li> elements must be contained in a <ul> or <ol>
-Affected Elements
-li[data-slick-index=20]
-li[data-slick-index=21]
-li[data-slick-index=22]
-li[data-slick-index=23]
-li[data-slick-index=24]
-
-
-Page|https://perle.com
-Test Location|Virginia USA - EC2  - <b>Chrome</b> - <b>Cable</b>
-loadTime|5512
-First Contentful Paint|520.6666666666666
-Largest Contentful Paint|1526.3333333333333
-Cumulative Layout Shift|0.3405425869
-Time To First Byte(TTFB)|303
-Time To Interactive|3989
-Speed Index|303
-CPU Load|29.506867043966665
-Total Blocking Time|520.6666666666666
-Render Blocking Resources
-/styles/bootstrap-4.4.1/css/bootstrap.min.css
-/styles/main-b4.css
-/styles/cards-b4.css
-/styles/home-b4.css
-/scripts/bootstrap-3.3.4/respond-min.js
-/styles/slick.css
-/styles/bootstrap-select.css
-/scripts/jquery-bootstrap.js
-/scripts/jquery.cycle.all.min.js?ver=3.9
-/scripts/slick-slider.js
-/scripts/cookiecontrol-7.2.min.js
-/contactus/css/formnet.css
-/styles/bootstrap-4.4.1/js/bootstrap.bundle.min.js
-/contactus/js/site.js?v=0egs7y71xgz3aemhkhbnfytduujzz50pjl9fjgvehfa
-
-Accessibility Failures
-ID|aria-allowed-attr
-IMPACT|critical
-DESC|Ensures ARIA attributes are allowed for an element's role
-HELP|Elements must only use allowed ARIA attributes
-Affected Elements
-#slick-slide-control13
-
-ID|aria-required-children
-IMPACT|critical
-DESC|Ensures elements with an ARIA role that require child roles contain them
-HELP|Certain ARIA roles must contain particular children
-Affected Elements
-.slick-dots
-
-ID|list
-IMPACT|serious
-DESC|Ensures that lists are structured correctly
-HELP|<ul> and <ol> must only directly contain <li>, <script> or <template> elements
-Affected Elements
-.auto-slider
-
-ID|listitem
-IMPACT|serious
-DESC|Ensures <li> elements are used semantically
-HELP|<li> elements must be contained in a <ul> or <ol>
-Affected Elements
-li[data-slick-index=25]
-li[data-slick-index=26]
-li[data-slick-index=27]
-li[data-slick-index=28]
-li[data-slick-index=29]
-
-
-Page|https://perle.com/products
-Test Location|Toronto, Canada - EC2 - <b>Chrome</b> - <b>Cable</b>
-loadTime|5220.666666666667
-First Contentful Paint|607.3333333333334
-Largest Contentful Paint|701.6666666666666
-Cumulative Layout Shift|0.06496683143333333
-Time To First Byte(TTFB)|366
-Time To Interactive|
-Speed Index|366
-CPU Load|36.40013937929999
-Total Blocking Time|607.3333333333334
-Render Blocking Resources
-/styles/bootstrap-4.4.1/css/bootstrap.min.css
-/styles/main-b4.css
-/styles/cards-b4.css
-/styles/bootstrap-select.css
-/styles/bootstrap-4.4.1/js/bootstrap.bundle.min.js
-/scripts/cookiecontrol-7.2.min.js
-/scripts/bootstrap-3.3.4/respond-min.js
-/contactus/css/formnet.css
-/contactus/js/site.js?v=0egs7y71xgz3aemhkhbnfytduujzz50pjl9fjgvehfa
-
-Accessibility Failures
-ID|link-name
-IMPACT|serious
-DESC|Ensures links have discernible text
-HELP|Links must have discernible text
-Affected Elements
-.margin-home
-
+Page|https://perle.com/products|https://perle.com/products|https://perle.com/products|
+Test Location|Salt Lake City, Utah - GCE - <b>Chrome</b> - <b>Cable</b>|Toronto, Canada - EC2 - <b>Chrome</b> - <b>Cable</b>|Virginia USA - EC2  - <b>Chrome</b> - <b>Cable</b>|
+loadTime|5959.666666666667|5220.666666666667|4559.333333333333|
+First Contentful Paint|1203|607.3333333333334|545.6666666666666|
+Largest Contentful Paint|1394.6666666666667|701.6666666666666|613|
+Cumulative Layout Shift|0.056526118066666665|0.06496683143333333|0.07187668660000002|
+Time To First Byte(TTFB)|814.6666666666666|366|321.6666666666667|
+Time To Interactive|2119||3606.3333333333335|
+Speed Index|814.6666666666666|366|321.6666666666667|
+CPU Load|42.46188063566667|36.40013937929999|34.637941291500006|
+Total Blocking Time|1203|607.3333333333334|545.6666666666666|
+ID|link-name|link-name|link-name|
+IMPACT|serious|serious|serious|
+DESC|Ensures links have discernible text|Ensures links have discernible text|Ensures links have discernible text|
+HELP|Links must have discernible text|Links must have discernible text|Links must have discernible text|

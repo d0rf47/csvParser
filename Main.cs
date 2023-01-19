@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Text.RegularExpressions;
-using Newtonsoft.Json.Linq;
+using System.Linq;
 
 namespace perle.tech.benchmarking
 {
@@ -11,24 +11,37 @@ namespace perle.tech.benchmarking
         {                        
             List<TestResult> results = new List<TestResult>();
             var FilePaths = Directory.GetFiles("./jsonFiles").Select(Path.GetFileName);
-            if(File.Exists("./output.csv"))
-                File.Delete("./output.csv");
+            try{
+                if(File.Exists("./output.csv"))
+                    File.Delete("./output.csv");
+            }catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return;
+            }
+            
             foreach(string s in FilePaths)
             {
                 TestResult temp = new TestResult();
                 temp.GenerateResultsFromJSON("./jsonFiles/" + s);
                 //results.Print();
-                temp.WriteToCsv();
+                //temp.WriteToCsv();
                 results.Add(temp);
             }
             var groupedResults = results.GroupBy(i =>
-                i.resultSet["Page"]
+                i.resultSet[0]
             ).Select(group => group.ToList())
             .ToList();
 
             groupedResults.ForEach(g =>
             {
-                //WriteToCsv(g);
+                try{
+                    WriteToCsv(g);
+                }catch(Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+                
             });
         }
 
@@ -36,6 +49,7 @@ namespace perle.tech.benchmarking
         {
             //second check is to ensure we append to the file on loop and not add extra headers and sep command
             bool exists = (File.Exists("./output.csv"));
+            string rowText = "";
             using (var writer = new StreamWriter("./output.csv", true))
             {
                 if(!exists)
@@ -47,10 +61,40 @@ namespace perle.tech.benchmarking
                 }
                 if(exists)
                     writer.WriteLine();        
-                foreach(var rs in testResultList)
+                
+                //Write all rows for each common page that does not use a list
+                for(int j = 0; j < testResultList[0].resultSet.Count; j++)
                 {
-                    //write everything not in a list   
+                    if(testResultList[0].resultSet[j].Value is not IList)
+                    {
+                        rowText = testResultList[0].resultSet[j].Key + "|";
+                        for(int i = 0; i < testResultList.Count; i++)
+                        {
+                            rowText += testResultList[i].resultSet[j].Value + "|";
+                        }    
+                        writer.WriteLine(rowText);
+                    }else if(testResultList[0].resultSet[j].Key == "Accessibility Failures")
+                    {
+                        
+                        rowText = "";
+                        for(int k = 0; k < testResultList[0].resultSet[j].Value.Count;k++)
+                        {
+                            for(int l = 0; l < testResultList[0].resultSet[j].Value[k].Violation.Count; l++)
+                            {
+                                rowText = testResultList[0].resultSet[j].Value[k].Violation[l].Key + "|";                                
+                                for(int i = 0; i < testResultList.Count; i++)
+                                {
+                                    rowText +=testResultList[0].resultSet[j].Value[k].Violation[l].Value + "|";
+                                }   
+                                writer.WriteLine(rowText); 
+                            }
+                            
+                        }
+                        
+                    }
+                    
                 }
+                
             }
                 
         }

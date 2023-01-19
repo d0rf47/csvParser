@@ -9,28 +9,28 @@ namespace perle.tech.benchmarking
 {
     class TestResult
     {
-        public Dictionary<string, dynamic?>? resultSet {get;set;}
+        public List<KeyValuePair<string, dynamic?>> resultSet {get;set;}
 
         public TestResult()
         {
-            resultSet = new Dictionary<string, dynamic?>();
+            resultSet = new List<KeyValuePair<string, dynamic?>>();
         }
 
         public void GenerateResultsFromJSON(string JsonFilePath)
         {            
             string jsonString = File.ReadAllText(JsonFilePath);
             JObject jsonsData = JObject.Parse(jsonString);
-            resultSet.Add("Page", jsonsData.SelectToken("data.url"));
-            resultSet.Add("Test Location", jsonsData.SelectToken("data.from"));
-            resultSet.Add("loadTime", jsonsData.SelectToken("data.average.firstView.loadTime"));
-            resultSet.Add("First Contentful Paint", jsonsData.SelectToken("data.average.firstView.firstContentfulPaint"));            
-            resultSet.Add("Largest Contentful Paint", jsonsData.SelectToken("data.average.firstView['chromeUserTiming.LargestContentfulPaint']"));
-            resultSet.Add("Cumulative Layout Shift", jsonsData.SelectToken("data.average.firstView['chromeUserTiming.CumulativeLayoutShift']"));
-            resultSet.Add("Time To First Byte(TTFB)", jsonsData.SelectToken("data.average.firstView.TTFB"));
-            resultSet.Add("Time To Interactive", jsonsData.SelectToken("data.average.firstView.TimeToInteractive"));
-            resultSet.Add("Speed Index", jsonsData.SelectToken("data.average.firstView.TTFB"));
-            resultSet.Add("CPU Load", jsonsData.SelectToken("data.average.firstView.fullyLoadedCPUpct"));
-            resultSet.Add("Total Blocking Time", jsonsData.SelectToken("data.average.firstView.firstContentfulPaint"));
+            resultSet.Add(new KeyValuePair<string, dynamic?>("Page", jsonsData.SelectToken("data.url")));
+            resultSet.Add(new KeyValuePair<string, dynamic?>("Test Location", jsonsData.SelectToken("data.from")));
+            resultSet.Add(new KeyValuePair<string, dynamic?>("loadTime", jsonsData.SelectToken("data.average.firstView.loadTime")));
+            resultSet.Add(new KeyValuePair<string, dynamic?>("First Contentful Paint", jsonsData.SelectToken("data.average.firstView.firstContentfulPaint")));
+            resultSet.Add(new KeyValuePair<string, dynamic?>("Largest Contentful Paint", jsonsData.SelectToken("data.average.firstView['chromeUserTiming.LargestContentfulPaint']")));
+            resultSet.Add(new KeyValuePair<string, dynamic?>("Cumulative Layout Shift", jsonsData.SelectToken("data.average.firstView['chromeUserTiming.CumulativeLayoutShift']")));
+            resultSet.Add(new KeyValuePair<string, dynamic?>("Time To First Byte(TTFB)", jsonsData.SelectToken("data.average.firstView.TTFB")));
+            resultSet.Add(new KeyValuePair<string, dynamic?>("Time To Interactive", jsonsData.SelectToken("data.average.firstView.TimeToInteractive")));
+            resultSet.Add(new KeyValuePair<string, dynamic?>("Speed Index", jsonsData.SelectToken("data.average.firstView.TTFB")));
+            resultSet.Add(new KeyValuePair<string, dynamic?>("CPU Load", jsonsData.SelectToken("data.average.firstView.fullyLoadedCPUpct")));
+            resultSet.Add(new KeyValuePair<string, dynamic?>("Total Blocking Time", jsonsData.SelectToken("data.average.firstView.firstContentfulPaint")));
             // resultSet.Add("Blocking CSS", jsonsData.SelectToken("data.average.firstView.renderBlockingCSS"));
             // resultSet.Add("Blocking JS", jsonsData.SelectToken("data.average.firstView.renderBlockingJS"));            
             List<AccessibilityViolations> violations = new List<AccessibilityViolations>();
@@ -63,8 +63,8 @@ namespace perle.tech.benchmarking
                     blockingFiles.Add(s.SelectToken("url").ToString());
                 }
             }
-            resultSet.Add("Render Blocking Resources", blockingFiles.ConvertAll(s=> s.ToLower()).Distinct().ToList());            
-            resultSet.Add("Accessibility Failures", violations);            
+            resultSet.Add(new KeyValuePair<string, dynamic?>("Render Blocking Resources", blockingFiles.ConvertAll(s=> s.ToLower()).Distinct().ToList()));
+            resultSet.Add(new KeyValuePair<string, dynamic?>("Accessibility Failures", violations));
         }
 
         public void Print()
