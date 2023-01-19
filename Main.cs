@@ -66,6 +66,9 @@ namespace perle.tech.benchmarking
             Console.Beep();
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"Program Completed Successfully! {results.Count} files have been processed \nfor a total of {groupedResults.Count} pages. \nThe processed csv file can be found a {outputFile}");
+            Console.WriteLine("Press any key to terminate this window");
+            int x = Console.Read();            
+            return;
         }
 
         public static bool ValidateUserArgs(string[] args, ref string errMsg)
